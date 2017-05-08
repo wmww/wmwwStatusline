@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Release">
-				<Option output="wmww_statusline" prefix_auto="1" extension_auto="1" />
+				<Option output="../wmww_statusline" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -22,7 +22,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../src/get_ram.cpp" />
+		<Unit filename="../src/get_time.cpp" />
 		<Unit filename="../src/main.cpp" />
+		<Unit filename="../src/statusline.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

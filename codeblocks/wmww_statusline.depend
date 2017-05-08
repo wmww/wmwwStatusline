@@ -1,8 +1,25 @@
 # depslib dependency file v1.0
-1494270414 source:/home/william/code/wmww_statusline/src/main.cpp
-	"../h/statusline.h"
+1494273833 source:/home/william/code/wmww_statusline/src/main.cpp
+	"statusline.h"
 
 1494270246 /home/william/code/wmww_statusline/h/statusline.h
 	<string>
 	<iostream>
+
+1494271264 source:/home/william/code/wmww_statusline/src/get_time.cpp
+	"statusline.h"
+	<ctime>
+	<time.h>
+
+1494273086 /home/william/code/wmww_statusline/src/statusline.h
+	<string>
+	<iostream>
+
+1494273671 source:/home/william/code/wmww_statusline/src/get_ram.cpp
+	"statusline.h"
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<string.h>
 

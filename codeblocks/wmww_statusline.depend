@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1494270414 source:/home/william/code/wmww_statusline/src/main.cpp
+	"../h/statusline.h"
+
+1494270246 /home/william/code/wmww_statusline/h/statusline.h
+	<string>
+	<iostream>
+

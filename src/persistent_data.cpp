@@ -2,6 +2,18 @@
 
 #include "file_utils.h"
 
+#include "number_conversion_utils.h"
+
+double DataVal::asNum()
+{
+	return stringToDouble(data);
+}
+
+string DataVal::asString()
+{
+	return data;
+}
+
 static string getNextToken(const string& data, int& i)
 {
 	string out;
@@ -78,28 +90,30 @@ void PersistentData::fromString(string contents, string prefix)
 	
 	for (int j=0; j<(int)tokens.size(); j++)
 	{
-		if (tokens[j]!=":")
+		if (tokens[j] != ":")
 		{
 			string key;
 			if (!prefix.empty())
-				key+=prefix+".";
-			key+=tokens[j];
-			string val="";
+				key += prefix + ".";
+			key += tokens[j];
+			string val = "";
 			
 			while (j+2<(int)tokens.size() && tokens[j+1]==":")
 			{
 				if (!val.empty())
 				{
-					key+="."+val;
+					key += "." + val;
 				}
 				
-				val=tokens[j+2];
+				val = tokens[j + 2];
 				
-				j+=2;
+				j += 2;
 			}
 			
-			data[key]=val;
-			orderedKeys.push_back(key);
+			if (val.empty())
+				val = "null";
+			
+			addKeyVal(key, val);
 		}
 	}
 }
@@ -129,3 +143,51 @@ bool PersistentData::toFile(string path)
 {
 	return writeFile(path, toString());
 }
+
+DataVal PersistentData::get(string key)
+{
+	auto result = data.find(key);
+	
+	if (result == data.end())
+	{
+		return DataVal("");
+	}
+	else
+	{
+		string out = result->second;
+		
+		if (out.empty())
+			out = "null"; // this should never happen but I want to be sure
+		
+		return DataVal(out);
+	}
+}
+
+void PersistentData::set(string key, string val)
+{
+	addKeyVal(key, val);
+}
+
+void PersistentData::set(string key, double val)
+{
+	addKeyVal(key, doubleToString(val));
+}
+
+void PersistentData::set(string key, bool val)
+{
+	addKeyVal(key, val ? "true" : "false");
+}
+
+void PersistentData::addKeyVal(string key, string val)
+{
+	if (data.find(key) == data.end())
+		orderedKeys.push_back(key);
+	
+	data[key] = val;
+	
+}
+
+
+
+
+

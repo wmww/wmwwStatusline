@@ -32,6 +32,11 @@ bool processArgs(int argc, char ** argv)
 			quit = true;
 			break;
 		}
+		else if (args[i]=="-r" || args[i]=="--reset")
+		{
+			remove(tempDataPath.c_str());
+			quit = true;
+		}
 		else
 		{
 			cout << "ERROR: unrecognized option '" << args[i] << "'" << endl;

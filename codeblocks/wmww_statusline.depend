@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1494290273 source:/home/william/code/wmww_statusline/src/main.cpp
+1494299276 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 
@@ -26,19 +26,20 @@
 	<unistd.h>
 	<string.h>
 
-1494276689 source:/home/william/code/wmww_statusline/src/get_cpu.cpp
+1494298584 source:/home/william/code/wmww_statusline/src/get_cpu.cpp
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<fcntl.h>
 	"statusline.h"
 
-1494290017 /home/william/code/wmww_statusline/src/persistent_data.h
+1494298986 /home/william/code/wmww_statusline/src/persistent_data.h
 	<unordered_map>
 
-1494289948 source:/home/william/code/wmww_statusline/src/persistent_data.cpp
+1494299249 source:/home/william/code/wmww_statusline/src/persistent_data.cpp
 	"statusline.h"
 	"file_utils.h"
+	"number_conversion_utils.h"
 
 1494278714 source:/home/william/code/wmww_statusline/src/file_utils.cpp
 	"statusline.h"
@@ -46,5 +47,11 @@
 	<sstream>
 
 1494278763 /home/william/code/wmww_statusline/src/file_utils.h
+	<string>
+
+1494297233 source:/home/william/code/wmww_statusline/src/number_conversion_utils.cpp
+	"number_conversion_utils.h"
+
+1494297221 /home/william/code/wmww_statusline/src/number_conversion_utils.h
 	<string>
 

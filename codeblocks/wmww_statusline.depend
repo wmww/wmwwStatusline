@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1494273833 source:/home/william/code/wmww_statusline/src/main.cpp
+1494289586 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
+	<unistd.h>
 
 1494270246 /home/william/code/wmww_statusline/h/statusline.h
 	<string>
@@ -11,9 +12,11 @@
 	<ctime>
 	<time.h>
 
-1494273086 /home/william/code/wmww_statusline/src/statusline.h
+1494289289 /home/william/code/wmww_statusline/src/statusline.h
 	<string>
 	<iostream>
+	<vector>
+	"persistent_data.h"
 
 1494273671 source:/home/william/code/wmww_statusline/src/get_ram.cpp
 	"statusline.h"
@@ -22,4 +25,26 @@
 	<fcntl.h>
 	<unistd.h>
 	<string.h>
+
+1494276689 source:/home/william/code/wmww_statusline/src/get_cpu.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<fcntl.h>
+	"statusline.h"
+
+1494289780 /home/william/code/wmww_statusline/src/persistent_data.h
+	<unordered_map>
+
+1494288812 source:/home/william/code/wmww_statusline/src/persistent_data.cpp
+	"statusline.h"
+	"file_utils.h"
+
+1494278714 source:/home/william/code/wmww_statusline/src/file_utils.cpp
+	"statusline.h"
+	<fstream>
+	<sstream>
+
+1494278763 /home/william/code/wmww_statusline/src/file_utils.h
+	<string>
 

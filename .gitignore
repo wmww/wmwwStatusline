@@ -1,0 +1,7 @@
+# binary
+wmww_status
+
+# codeblocks
+*.depend
+*.layout
+*.o

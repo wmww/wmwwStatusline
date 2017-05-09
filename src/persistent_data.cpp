@@ -125,3 +125,7 @@ string PersistentData::toString()
 	return out;
 }
 
+bool PersistentData::toFile(string path)
+{
+	return writeFile(path, toString());
+}

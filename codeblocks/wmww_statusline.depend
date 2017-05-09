@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1494289586 source:/home/william/code/wmww_statusline/src/main.cpp
+1494290273 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 
@@ -33,10 +33,10 @@
 	<fcntl.h>
 	"statusline.h"
 
-1494289780 /home/william/code/wmww_statusline/src/persistent_data.h
+1494290017 /home/william/code/wmww_statusline/src/persistent_data.h
 	<unordered_map>
 
-1494288812 source:/home/william/code/wmww_statusline/src/persistent_data.cpp
+1494289948 source:/home/william/code/wmww_statusline/src/persistent_data.cpp
 	"statusline.h"
 	"file_utils.h"
 

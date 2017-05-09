@@ -10,9 +10,6 @@ public:
 	string toString();
 	bool toFile(string path);
 	
-	string get(string key);
-	void set(string key, string val);
-	
 private:
 	
 	vector<string> orderedKeys;

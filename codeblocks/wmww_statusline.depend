@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1494299276 source:/home/william/code/wmww_statusline/src/main.cpp
+1494353189 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
+	"graphics.h"
 
 1494270246 /home/william/code/wmww_statusline/h/statusline.h
 	<string>
@@ -49,9 +50,17 @@
 1494278763 /home/william/code/wmww_statusline/src/file_utils.h
 	<string>
 
-1494297233 source:/home/william/code/wmww_statusline/src/number_conversion_utils.cpp
+1494299512 source:/home/william/code/wmww_statusline/src/number_conversion_utils.cpp
 	"number_conversion_utils.h"
 
 1494297221 /home/william/code/wmww_statusline/src/number_conversion_utils.h
 	<string>
+
+1494302244 source:/home/william/code/wmww_statusline/src/graphics.cpp
+	"graphics.h"
+	<math.h>
+
+1494300750 /home/william/code/wmww_statusline/src/graphics.h
+	<string>
+	<vector>
 

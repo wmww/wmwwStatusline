@@ -33,7 +33,7 @@ string doubleToString(double in)
 		b+=1;
 	while (b>0 && !(b%10))
 		b/=10;
-	return intToString(a)+"."+intToString(b);
+	return intToString(a)+(b ? "."+intToString(b) : "");
 }
 
 int stringToInt(string in)

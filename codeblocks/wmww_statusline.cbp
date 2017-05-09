@@ -29,6 +29,8 @@
 		<Unit filename="../src/get_cpu.cpp" />
 		<Unit filename="../src/get_ram.cpp" />
 		<Unit filename="../src/get_time.cpp" />
+		<Unit filename="../src/graphics.cpp" />
+		<Unit filename="../src/graphics.h" />
 		<Unit filename="../src/main.cpp" />
 		<Unit filename="../src/number_conversion_utils.cpp" />
 		<Unit filename="../src/number_conversion_utils.h" />

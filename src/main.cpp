@@ -1,9 +1,10 @@
 #include "statusline.h"
 #include <unistd.h>
 
+#include "graphics.h"
+
 PersistentData data;
 
-const string tempDataPath="/tmp/wmww_statusline_data.txt";
 const string configPath="config.txt";
 
 const string defaultConfig=
@@ -27,15 +28,8 @@ bool processArgs(int argc, char ** argv)
 		{
 			cout << "WMWW Statusline" << endl;
 			cout << "usage: wmww_status [OPTIONS]" << endl;
-			cout << "options:" << endl;
-			cout << "    -r, --reset: delete temp file, thus forcing a reload of config" << endl;
 			quit = true;
 			break;
-		}
-		else if (args[i]=="-r" || args[i]=="--reset")
-		{
-			remove(tempDataPath.c_str());
-			quit = true;
 		}
 		else
 		{
@@ -51,18 +45,10 @@ bool processArgs(int argc, char ** argv)
 
 void loadData()
 {
-	if (!data.fromFile(tempDataPath, ""))
+	if (!data.fromFile(configPath, "config"))
 	{
-		if (!data.fromFile(configPath, "config"))
-		{
-			data.fromString(defaultConfig, "config");
-		}
+		data.fromString(defaultConfig, "config");
 	}
-}
-
-void saveData()
-{
-	data.toFile(tempDataPath);
 }
 
 int main(int argc, char ** argv)
@@ -72,13 +58,12 @@ int main(int argc, char ** argv)
 	
 	loadData();
 	
-	/*
-	while (true)
+	/*while (true)
 	{
-		usleep(40000);
+		usleep(1000000);
 		cout << getCpu() << endl;
-	}
-	*/
+		cout << getRam() << endl;
+	}*/
 	
 	/*
 	PersistentData data;
@@ -89,9 +74,17 @@ int main(int argc, char ** argv)
 	}
 	*/
 	
-	cout << data.toString() << endl;
+	//cout << data.toString() << endl;
 	
-	saveData();
+	//cout << getCpu() << endl;
+	
+	//cout << *((int*)0) << endl;
+	
+	while (true)
+	{
+		cout << "RAM: " << verticalBar(getRam()) << " | " << "CPU: " << verticalBar(getCpu()/100.0) << endl;
+		usleep(600000);
+	}
 	
 	return 0;
 }

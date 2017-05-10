@@ -75,11 +75,16 @@
 1494440529 source:/home/william/code/wmww_statusline/src/cpu_plugin.cpp
 	"Plugin.h"
 
-1494439181 /home/william/code/wmww_statusline/src/ConfigData.h
+1494441743 /home/william/code/wmww_statusline/src/ConfigData.h
 	<unordered_map>
 
-1494439205 source:/home/william/code/wmww_statusline/src/ConfigData.cpp
+1494442176 source:/home/william/code/wmww_statusline/src/ConfigData.cpp
 	"statusline.h"
 	"file_utils.h"
 	"number_conversion_utils.h"
+	"../../string_utils/wmstr.h"
+
+1494385828 /home/william/code/string_utils/wmstr.h
+	<string>
+	<vector>
 

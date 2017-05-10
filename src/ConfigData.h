@@ -21,8 +21,8 @@ class ConfigData
 public:
 	
 	// returnes false if failed
-	bool fromFile(string path, string prefix);
-	void fromString(string contents, string prefix);
+	bool fromFile(string path, vector<ConfigData>& children);
+	void fromString(string contents, vector<ConfigData>& children);
 	string toString();
 	bool toFile(string path);
 	

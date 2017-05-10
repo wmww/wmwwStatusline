@@ -3,7 +3,8 @@
 
 #include "graphics.h"
 
-ConfigData data;
+ConfigData globalConfig;
+vector<ConfigData> itemsConfig;
 
 const string configPath="config.txt";
 
@@ -45,9 +46,9 @@ bool processArgs(int argc, char ** argv)
 
 void loadData()
 {
-	if (!data.fromFile(configPath, "config"))
+	if (!globalConfig.fromFile(configPath, itemsConfig))
 	{
-		data.fromString(defaultConfig, "config");
+		globalConfig.fromString(defaultConfig, itemsConfig);
 	}
 }
 

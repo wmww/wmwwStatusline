@@ -4,6 +4,10 @@
 
 #include "number_conversion_utils.h"
 
+#include "../../string_utils/wmstr.h"
+
+using namespace wmstr;
+
 double DataVal::asNum()
 {
 	return stringToDouble(data);
@@ -14,29 +18,27 @@ string DataVal::asString()
 	return data;
 }
 
-static string getNextToken(const string& data, int& i)
+static string getNextToken(Itr& i)
 {
 	string out;
 	
 	while (true)
 	{
-		if (i>=(int)data.size())
+		if (i.isEnd())
 		{
 			return out;
 		}
-		else if (data[i]==':')
+		else if (i.get() == ":" || i.get() == "{" || i.get() == "}")
 		{
 			if (out.empty())
 			{
-				i++;
-				return string()+data[i-1];
+				out = i.get();
+				i.onward();
 			}
-			else
-			{
-				return out;
-			}
+			
+			return out;
 		}
-		else if (data[i]=='\n' || data[i]=='\r' || data[i]==';')
+		else if (i.get() == "\n" || i.get() == "\r" || i.get() == ";")
 		{
 			if (out.empty())
 			{
@@ -47,40 +49,40 @@ static string getNextToken(const string& data, int& i)
 				return out;
 			}
 		}
-		else if (data[i]==' ' || data[i]=='\t')
+		else if (i.get() == " " || i.get() == "\t")
 		{
 			// do nothing
 		}
 		else
 		{
-			out+=data[i];
+			out += i.get();
 		}
 		
-		i++;
+		i.onward();
 	}
 }
 
-bool ConfigData::fromFile(string path, string prefix)
+bool ConfigData::fromFile(string path, vector<ConfigData>& children)
 {
 	string contents;
 	
 	if (!loadFile(path, contents))
 		return false;
 	
-	fromString(contents, prefix);
+	fromString(contents, children);
 	
 	return true;
 }
 
-void ConfigData::fromString(string contents, string prefix)
+void ConfigData::fromString(string contents, vector<ConfigData>& children)
 {
-	int i=0;
+	auto i = startOf(contents);
 	
 	vector<string> tokens;
 	
-	while (i<(int)contents.size())
+	while (!i.isEnd())
 	{
-		string token=getNextToken(contents, i);
+		string token=getNextToken(i);
 		if (!token.empty())
 		{
 			tokens.push_back(token);
@@ -88,17 +90,39 @@ void ConfigData::fromString(string contents, string prefix)
 		}
 	}
 	
+	int blockLevel = 0;
+	
+	ConfigData * block = this;
+	
 	for (int j=0; j<(int)tokens.size(); j++)
 	{
+		if (tokens[j] == "{")
+		{
+			if (blockLevel == 0)
+			{
+				children.push_back(ConfigData());
+				block = &children.back();
+			}
+			
+			blockLevel++;
+		}
+		else if (tokens[j] == "}")
+		{
+			blockLevel--;
+			
+			if (blockLevel <= 0)
+			{
+				blockLevel = 0;
+				block = this;
+			}
+		}
 		if (tokens[j] != ":")
 		{
 			string key;
-			if (!prefix.empty())
-				key += prefix + ".";
 			key += tokens[j];
 			string val = "";
 			
-			while (j+2<(int)tokens.size() && tokens[j+1]==":")
+			while (j+2 < (int)tokens.size() && tokens[j+1] == ":" && tokens[j+1] != "{" && tokens[j+1] != "}" )
 			{
 				if (!val.empty())
 				{
@@ -113,7 +137,7 @@ void ConfigData::fromString(string contents, string prefix)
 			if (val.empty())
 				val = "null";
 			
-			addKeyVal(key, val);
+			block->addKeyVal(key, val);
 		}
 	}
 }

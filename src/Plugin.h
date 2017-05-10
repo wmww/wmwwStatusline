@@ -30,5 +30,5 @@ public:
 	static const string plaintextSeparator;
 };
 
-
+Plugin makePlugin(ConfigData * config);
 

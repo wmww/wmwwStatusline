@@ -12,6 +12,7 @@ class PluginBase
 public:
 	
 	static Plugin make(ConfigData * config);
+	static Plugin make(string text, string color = "", string background = "");
 	
 	string getJson();
 	string getPlaintext();
@@ -39,8 +40,8 @@ public:
 	
 	vector<Section> sections;
 	
-	string jsonCache;
-	string plaintextCache;
+	string jsonCache = "";
+	string plaintextCache = "";
 	
 	static const string plaintextSeparator;
 };

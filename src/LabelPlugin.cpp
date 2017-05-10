@@ -17,6 +17,7 @@ Plugin labelPlugin(PluginBase::Section in)
 	auto out = shared_ptr<LabelPlugin>(new LabelPlugin());
 	
 	out->section = in;
+	out->update(0);
 	
 	return out;
 }
@@ -28,6 +29,7 @@ Plugin labelPlugin(ConfigData * config)
 	out->section.text = config->get("text").asString("[no text provided]");
 	out->section.color = config->get("color").asString("");
 	out->section.bknd = config->get("background").asString("");
+	out->update(0);
 	
 	return out;
 }

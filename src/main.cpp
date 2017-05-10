@@ -8,6 +8,7 @@
 ConfigData globalConfig;
 vector<ConfigData> itemsConfig;
 vector<Plugin> plugins;
+Plugin separator = PluginBase::make(" | ", "#ffffff");
 
 const string configPath="/home/william/code/wmww_statusline/config.txt";
 
@@ -88,7 +89,7 @@ int main(int argc, char ** argv)
 			if (useJson)
 			{
 				if (!isStart)
-					out += ",";
+					out += "," + separator->getJson() + ",";
 				isStart = false;
 				
 				out += i->getJson();
@@ -96,12 +97,18 @@ int main(int argc, char ** argv)
 			else
 			{
 				if (!isStart)
-					out += " | ";
+					out += separator->getPlaintext();
 				isStart = false;
 				out += i->getPlaintext();
 			}
 		}
-		cout << "[" << out << "]," << endl;
+		
+		if (useJson)
+		{
+			out = "[" + out + "],";
+		}
+		
+		cout << out << endl;
 		usleep(600000);
 	}
 	

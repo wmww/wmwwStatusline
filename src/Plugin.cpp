@@ -36,6 +36,11 @@ string PluginBase::getJson()
 			
 			jsonCache += "}";
 		}
+		
+		if (jsonCache.empty())
+		{
+			jsonCache =  "{\"full_text\":\"[empty section]\"}";
+		}
 	}
 	
 	return jsonCache;
@@ -101,5 +106,10 @@ Plugin PluginBase::make(ConfigData * config)
 	{
 		return labelPlugin(PluginBase::Section("[section with unknown type '" + type + "']", "#ffffff", "#ff0000"));
 	}
+}
+
+Plugin PluginBase::make(string text, string color, string bknd)
+{
+	return labelPlugin(PluginBase::Section(text, color, bknd));
 }
 

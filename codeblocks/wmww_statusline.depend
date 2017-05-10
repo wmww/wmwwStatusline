@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1494447224 source:/home/william/code/wmww_statusline/src/main.cpp
+1494450620 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 	"graphics.h"
@@ -14,7 +14,7 @@
 	<ctime>
 	<time.h>
 
-1494444049 /home/william/code/wmww_statusline/src/statusline.h
+1494449838 /home/william/code/wmww_statusline/src/statusline.h
 	<string>
 	<iostream>
 	<vector>
@@ -66,10 +66,10 @@
 	<string>
 	<vector>
 
-1494448058 source:/home/william/code/wmww_statusline/src/Plugin.cpp
+1494450606 source:/home/william/code/wmww_statusline/src/Plugin.cpp
 	"Plugin.h"
 
-1494446095 /home/william/code/wmww_statusline/src/Plugin.h
+1494450758 /home/william/code/wmww_statusline/src/Plugin.h
 	"statusline.h"
 	<memory>
 
@@ -92,7 +92,7 @@
 1494448557 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
 	"Plugin.h"
 
-1494445620 source:/home/william/code/wmww_statusline/src/LabelPlugin.cpp
+1494450758 source:/home/william/code/wmww_statusline/src/LabelPlugin.cpp
 	"Plugin.h"
 
 1494449496 source:/home/william/code/wmww_statusline/src/TimePlugin.cpp

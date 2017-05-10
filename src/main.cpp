@@ -50,9 +50,18 @@ bool processArgs(int argc, char ** argv)
 
 void loadConfig()
 {
+	globalConfig.clear();
+	itemsConfig.clear();
+	plugins.clear();
+	
 	if (!globalConfig.fromFile(configPath, itemsConfig))
 	{
 		globalConfig.fromString(defaultConfig, itemsConfig);
+	}
+	
+	for (auto i: itemsConfig)
+	{
+		plugins.push_back(PluginBase::make(&i));
 	}
 }
 
@@ -63,13 +72,6 @@ int main(int argc, char ** argv)
 	
 	loadConfig();
 	
-	//cout << globalConfig.toString() << endl;
-	
-	for (auto i: itemsConfig)
-	{
-		plugins.push_back(PluginBase::make(&i));
-	}
-	
 	bool useJson = globalConfig.get("use_json").exists();
 	
 	if (useJson)
@@ -79,6 +81,9 @@ int main(int argc, char ** argv)
 	
 	while (true)
 	{
+		if (globalConfig.get("live_reload").exists())
+			loadConfig();
+		
 		bool isStart = true;
 		string out;
 		

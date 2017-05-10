@@ -33,6 +33,8 @@ public:
 	void set(string key, double val);
 	void set(string key, bool val);
 	
+	void clear();
+	
 private:
 	
 	void addKeyVal(string key, string val);

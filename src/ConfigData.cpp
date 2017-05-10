@@ -43,6 +43,23 @@ static string getNextToken(Itr& i)
 		{
 			return out;
 		}
+		else if (i.get() == "\"")
+		{
+			if (out.empty())
+			{
+				i.onward();
+				
+				while (!i.isEnd() && i.get() != "\"")
+				{
+					out += i.get();
+					i.onward();
+				}
+				
+				i.onward();
+			}
+			
+			return out;
+		}
 		else if (i.get() == ":" || i.get() == "{" || i.get() == "}")
 		{
 			if (out.empty())
@@ -233,6 +250,11 @@ void ConfigData::addKeyVal(string key, string val)
 	
 }
 
+void ConfigData::clear()
+{
+	orderedKeys.clear();
+	data.clear();
+}
 
 
 

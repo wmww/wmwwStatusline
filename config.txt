@@ -13,11 +13,11 @@ use json
 
 {
 	type: time
-	format: %a, %b %d
+	format: "%a, %b %d"
 }
 
 {
 	type: time
-	format: %I:%M $p
+	format: "%I:%M:%S%P"
 }
 

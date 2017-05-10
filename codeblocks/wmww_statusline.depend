@@ -66,7 +66,7 @@
 	<string>
 	<vector>
 
-1494450606 source:/home/william/code/wmww_statusline/src/Plugin.cpp
+1494450886 source:/home/william/code/wmww_statusline/src/Plugin.cpp
 	"Plugin.h"
 
 1494450758 /home/william/code/wmww_statusline/src/Plugin.h
@@ -76,10 +76,10 @@
 1494440529 source:/home/william/code/wmww_statusline/src/cpu_plugin.cpp
 	"Plugin.h"
 
-1494448574 /home/william/code/wmww_statusline/src/ConfigData.h
+1494453480 /home/william/code/wmww_statusline/src/ConfigData.h
 	<unordered_map>
 
-1494448623 source:/home/william/code/wmww_statusline/src/ConfigData.cpp
+1494452418 source:/home/william/code/wmww_statusline/src/ConfigData.cpp
 	"statusline.h"
 	"file_utils.h"
 	"number_conversion_utils.h"
@@ -92,9 +92,9 @@
 1494448557 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
 	"Plugin.h"
 
-1494450758 source:/home/william/code/wmww_statusline/src/LabelPlugin.cpp
+1494450925 source:/home/william/code/wmww_statusline/src/LabelPlugin.cpp
 	"Plugin.h"
 
-1494449496 source:/home/william/code/wmww_statusline/src/TimePlugin.cpp
+1494452764 source:/home/william/code/wmww_statusline/src/TimePlugin.cpp
 	"Plugin.h"
 

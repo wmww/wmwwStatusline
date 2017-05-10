@@ -6,7 +6,7 @@ public:
 	
 	TimePlugin(ConfigData * config)
 	{
-		format = config->get("format").asString("%I:%M %p");
+		format = config->get("format").asString("%I:%M%p");
 	}
 	
 	double refresh(double delta)

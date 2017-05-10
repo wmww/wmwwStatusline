@@ -5,7 +5,7 @@
 string getTime(string format)
 {
 	if (format.empty())
-		format = "%A";
+		format = "%a, %b %d | %I:%M %p";
 		
 	time_t rawtime;
 	time (&rawtime);

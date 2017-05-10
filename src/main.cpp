@@ -82,7 +82,7 @@ int main(int argc, char ** argv)
 	
 	while (true)
 	{
-		cout << "RAM: " << verticalBar(getRam()) << " | " << "CPU: " << verticalBar(getCpu()/100.0) << endl;
+		cout << "RAM: " << verticalBar(getRam()) << " | " << "CPU: " << verticalBar(getCpu()/100.0) << " | " << getTime() << endl;
 		usleep(600000);
 	}
 	

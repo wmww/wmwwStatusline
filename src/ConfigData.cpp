@@ -18,6 +18,11 @@ string DataVal::asString()
 	return data;
 }
 
+string DataVal::asString(string defaultVal)
+{
+	return data.empty() ? defaultVal : data;
+}
+
 static string getNextToken(Itr& i)
 {
 	string out;

@@ -26,9 +26,10 @@
 		<Unit filename="../config.txt" />
 		<Unit filename="../src/ConfigData.cpp" />
 		<Unit filename="../src/ConfigData.h" />
+		<Unit filename="../src/CpuPlugin.cpp" />
+		<Unit filename="../src/LabelPlugin.cpp" />
 		<Unit filename="../src/Plugin.cpp" />
 		<Unit filename="../src/Plugin.h" />
-		<Unit filename="../src/cpu_plugin.cpp" />
 		<Unit filename="../src/file_utils.cpp" />
 		<Unit filename="../src/file_utils.h" />
 		<Unit filename="../src/get_cpu.cpp" />

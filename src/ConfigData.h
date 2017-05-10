@@ -8,6 +8,7 @@ public:
 	double asNum();
 	
 	string asString();
+	string asString(string defaultVal);
 	
 	bool exists() {return !data.empty();}
 	

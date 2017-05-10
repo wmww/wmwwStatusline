@@ -1,1 +1,10 @@
-items: [TIME, CPU, RAM]
+
+{
+	type: label
+	text: hayyyy
+}
+
+{
+	type: cpu
+}
+

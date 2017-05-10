@@ -3,13 +3,16 @@
 
 #include "graphics.h"
 
+#include "Plugin.h"
+
 ConfigData globalConfig;
 vector<ConfigData> itemsConfig;
+vector<Plugin> plugins;
 
 const string configPath="config.txt";
 
 const string defaultConfig=
-	"items: [CPU, RAM, TIME]"
+	"{type: label; text: no_config_file}"
 	;
 
 // returns true if program should abort
@@ -44,7 +47,7 @@ bool processArgs(int argc, char ** argv)
 	return quit;
 }
 
-void loadData()
+void loadConfig()
 {
 	if (!globalConfig.fromFile(configPath, itemsConfig))
 	{
@@ -57,7 +60,25 @@ int main(int argc, char ** argv)
 	if (processArgs(argc, argv))
 		return 0;
 	
-	loadData();
+	loadConfig();
+	
+	for (auto i: itemsConfig)
+	{
+		plugins.push_back(PluginBase::make(&i));
+	}
+	
+	while (true)
+	{
+		string out = " | ";
+		
+		for (auto i: plugins)
+		{
+			i->update(1);
+			out += i->getPlaintext() + " | ";
+		}
+		cout << out << endl;
+		usleep(600000);
+	}
 	
 	/*while (true)
 	{
@@ -81,11 +102,11 @@ int main(int argc, char ** argv)
 	
 	//cout << *((int*)0) << endl;
 	
-	while (true)
+	/*while (true)
 	{
 		cout << "RAM: " << verticalBar(getRam()) << " | " << "CPU: " << verticalBar(getCpu()/100.0) << " | " << getTime() << endl;
 		usleep(600000);
-	}
+	}*/
 	
 	return 0;
 }

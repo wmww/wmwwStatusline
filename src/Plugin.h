@@ -11,24 +11,37 @@ class PluginBase
 {
 public:
 	
+	static Plugin make(ConfigData * config);
+	
 	string getJson();
 	string getPlaintext();
 	
 	// returns requested time in seconds to next refresh (will not perfectly match delta)
 	double update(double delta);
 	
+	struct Section
+	{
+		string text;
+		string color;
+		string bknd;
+		
+		Section(string textIn = "[no text]", string colorIn = "", string bkndIn = "")
+		{
+			text = textIn;
+			color = colorIn;
+			bknd = bkndIn;
+		}
+	};
+	
 public:
 	
 	virtual double refresh(double delta) = 0;
 	
-	vector<string> text;
-	vector<string> color; // must be the same length
+	vector<Section> sections;
 	
 	string jsonCache;
 	string plaintextCache;
 	
 	static const string plaintextSeparator;
 };
-
-Plugin makePlugin(ConfigData * config);
 

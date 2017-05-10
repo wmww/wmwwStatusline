@@ -6,21 +6,26 @@ string PluginBase::getJson()
 {
 	if (jsonCache.empty())
 	{
-		for (int i = 0; i < (int)text.size(); i++)
+		for (int i = 0; i < (int)sections.size(); i++)
 		{
 			if (i)
 				jsonCache += ",";
 			
 			jsonCache += "{";
 			
-			jsonCache += "\"full_text\":\"" + text[i] + "\"";
+			jsonCache += "\"full_text\":\"" + sections[i].text + "\"";
 			
-			if (text.size() == color.size() && !color[i].empty())
+			if (!sections[i].color.empty())
 			{
-				jsonCache += ",\"color\":\"" + color[i] + "\"";
+				jsonCache += ",\"color\":\"" + sections[i].color + "\"";
 			}
 			
-			if (i != (int)text.size() - 1)
+			if (!sections[i].bknd.empty())
+			{
+				jsonCache += ",\"background\":\"" + sections[i].bknd + "\"";
+			}
+			
+			if (i != (int)sections.size() - 1)
 			{
 				jsonCache += ",\"separator\":true,\"separator_block_width\":0";
 			}
@@ -36,12 +41,12 @@ string PluginBase::getPlaintext()
 {
 	if (plaintextCache.empty())
 	{
-		for (int i = 0; i < (int)text.size(); i++)
+		for (int i = 0; i < (int)sections.size(); i++)
 		{
 			if (i)
 				plaintextCache += plaintextSeparator;
 			
-			plaintextCache += text[i];
+			plaintextCache += sections[i].text;
 		}
 	}
 	
@@ -53,8 +58,39 @@ double PluginBase::update(double delta)
 	jsonCache = "";
 	plaintextCache = "";
 	
-	text.clear();
-	color.clear();
+	sections.clear();
 	
 	return refresh(delta);
 }
+
+Plugin cpuPlugin(ConfigData * config);
+Plugin labelPlugin(PluginBase::Section in);
+Plugin labelPlugin(ConfigData * config);
+
+Plugin PluginBase::make(ConfigData * config)
+{
+	string type = config->get("type").asString("missing");
+	
+	if (type == "missing")
+	{
+		return labelPlugin(PluginBase::Section("[section without type]", "#ffffff", "#ff0000"));
+	}
+	else if (type == "label")
+	{
+		return labelPlugin(config);
+	}
+	else if (type == "cpu")
+	{
+		return cpuPlugin(config);
+	}
+			
+		//case "ram":
+			
+		//case "time":
+			
+	else
+	{
+		return labelPlugin(PluginBase::Section("[section with unknown type '" + type + "']", "#ffffff", "#ff0000"));
+	}
+}
+

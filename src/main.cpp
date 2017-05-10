@@ -61,7 +61,8 @@ void loadConfig()
 	
 	for (auto i: itemsConfig)
 	{
-		plugins.push_back(PluginBase::make(&i));
+		if (i.get("active").asString() != "false")
+			plugins.push_back(PluginBase::make(&i));
 	}
 }
 

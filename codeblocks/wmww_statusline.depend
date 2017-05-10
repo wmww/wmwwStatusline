@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1494450620 source:/home/william/code/wmww_statusline/src/main.cpp
+1494453460 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 	"graphics.h"
@@ -79,7 +79,7 @@
 1494453480 /home/william/code/wmww_statusline/src/ConfigData.h
 	<unordered_map>
 
-1494452418 source:/home/william/code/wmww_statusline/src/ConfigData.cpp
+1494453520 source:/home/william/code/wmww_statusline/src/ConfigData.cpp
 	"statusline.h"
 	"file_utils.h"
 	"number_conversion_utils.h"

@@ -9,7 +9,7 @@ ConfigData globalConfig;
 vector<ConfigData> itemsConfig;
 vector<Plugin> plugins;
 
-const string configPath="config.txt";
+const string configPath="/home/william/code/wmww_statusline/config.txt";
 
 const string defaultConfig=
 	"{type: label; text: no_config_file}"
@@ -62,21 +62,46 @@ int main(int argc, char ** argv)
 	
 	loadConfig();
 	
+	//cout << globalConfig.toString() << endl;
+	
 	for (auto i: itemsConfig)
 	{
 		plugins.push_back(PluginBase::make(&i));
 	}
 	
+	bool useJson = globalConfig.get("use_json").exists();
+	
+	if (useJson)
+	{
+		cout << "{\"version\":1}" << endl << "[" << endl;
+	}
+	
 	while (true)
 	{
-		string out = " | ";
+		bool isStart = true;
+		string out;
 		
 		for (auto i: plugins)
 		{
 			i->update(1);
-			out += i->getPlaintext() + " | ";
+			
+			if (useJson)
+			{
+				if (!isStart)
+					out += ",";
+				isStart = false;
+				
+				out += i->getJson();
+			}
+			else
+			{
+				if (!isStart)
+					out += " | ";
+				isStart = false;
+				out += i->getPlaintext();
+			}
 		}
-		cout << out << endl;
+		cout << "[" << out << "]," << endl;
 		usleep(600000);
 	}
 	

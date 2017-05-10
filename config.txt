@@ -1,7 +1,10 @@
 
+use json
+
 {
 	type: label
 	text: hayyyy
+	color: #00ff80
 }
 
 {

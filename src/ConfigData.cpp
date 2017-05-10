@@ -27,6 +27,8 @@ static string getNextToken(Itr& i)
 {
 	string out;
 	
+	bool hasWhitespace = false;
+	
 	while (true)
 	{
 		if (i.isEnd())
@@ -56,10 +58,17 @@ static string getNextToken(Itr& i)
 		}
 		else if (i.get() == " " || i.get() == "\t")
 		{
-			// do nothing
+			if (!out.empty())
+				hasWhitespace = true;
 		}
 		else
 		{
+			if (hasWhitespace)
+			{
+				out+= "_";
+				hasWhitespace = false;
+			}
+			
 			out += i.get();
 		}
 		
@@ -121,7 +130,7 @@ void ConfigData::fromString(string contents, vector<ConfigData>& children)
 				block = this;
 			}
 		}
-		if (tokens[j] != ":")
+		else if (tokens[j] != ":")
 		{
 			string key;
 			key += tokens[j];

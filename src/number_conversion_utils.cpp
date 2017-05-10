@@ -11,11 +11,12 @@ string intToString(int in)
 		in *= -1;
 	}
 	
-	while (in > 0)
+	do
 	{
 		out = (char)((in % 10) + '0') + out;
 		in /= 10;
 	}
+	while (in > 0);
 	
 	if (negative)
 		out = "-" + out;

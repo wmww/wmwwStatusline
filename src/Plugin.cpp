@@ -25,10 +25,14 @@ string PluginBase::getJson()
 				jsonCache += ",\"background\":\"" + sections[i].bknd + "\"";
 			}
 			
-			if (i != (int)sections.size() - 1)
+			//if (i != (int)sections.size() - 1)
 			{
-				jsonCache += ",\"separator\":true,\"separator_block_width\":0";
+				jsonCache += ",\"separator\":false,\"separator_block_width\":0";
 			}
+			/*else
+			{
+				jsonCache += ",\"separator\":true";
+			}*/
 			
 			jsonCache += "}";
 		}
@@ -63,9 +67,10 @@ double PluginBase::update(double delta)
 	return refresh(delta);
 }
 
-Plugin cpuPlugin(ConfigData * config);
 Plugin labelPlugin(PluginBase::Section in);
 Plugin labelPlugin(ConfigData * config);
+Plugin cpuPlugin(ConfigData * config);
+Plugin timePlugin(ConfigData * config);
 
 Plugin PluginBase::make(ConfigData * config)
 {
@@ -82,6 +87,10 @@ Plugin PluginBase::make(ConfigData * config)
 	else if (type == "cpu")
 	{
 		return cpuPlugin(config);
+	}
+	else if (type == "time")
+	{
+		return timePlugin(config);
 	}
 			
 		//case "ram":

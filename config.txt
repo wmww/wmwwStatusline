@@ -11,3 +11,13 @@ use json
 	type: cpu
 }
 
+{
+	type: time
+	format: %a, %b %d
+}
+
+{
+	type: time
+	format: %I:%M $p
+}
+

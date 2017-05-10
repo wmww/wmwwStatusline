@@ -42,18 +42,18 @@ double getCpu()
     used = user + unice + usystem + irq + softirq + guest;
     total = used + idle + iowait;
 	
-	long cpu_used = 0;
+	double cpu_used = 0;
 	
 	long oldtotal = lastCpuTotal;
 	long oldused = lastCpuUsed;
 	
     if ((total - oldtotal) != 0)
     {
-        cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
+        cpu_used = (double)(used - oldused) / (double)(total - oldtotal);
     }
     
-    lastCpuTotal = total;
-   lastCpuUsed = used;
+	lastCpuTotal = total;
+	lastCpuUsed = used;
     
     return cpu_used;
 }

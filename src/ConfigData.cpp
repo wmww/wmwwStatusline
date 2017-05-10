@@ -13,6 +13,14 @@ double DataVal::asNum()
 	return stringToDouble(data);
 }
 
+double DataVal::asNum(double defaultVal)
+{
+	if (data.empty())
+		return defaultVal;
+	else
+		return asNum();
+}
+
 string DataVal::asString()
 {
 	return data;

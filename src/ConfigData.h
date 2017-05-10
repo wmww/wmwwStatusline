@@ -6,6 +6,7 @@ public:
 	DataVal(string in) {data = in;}
 	
 	double asNum();
+	double asNum(double defaultVal);
 	
 	string asString();
 	string asString(string defaultVal);

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1494373877 source:/home/william/code/wmww_statusline/src/main.cpp
+1494439755 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 	"graphics.h"
@@ -13,11 +13,12 @@
 	<ctime>
 	<time.h>
 
-1494289289 /home/william/code/wmww_statusline/src/statusline.h
+1494440514 /home/william/code/wmww_statusline/src/statusline.h
 	<string>
 	<iostream>
 	<vector>
-	"persistent_data.h"
+	"ConfigData.h"
+	"number_conversion_utils.h"
 
 1494273671 source:/home/william/code/wmww_statusline/src/get_ram.cpp
 	"statusline.h"
@@ -27,17 +28,17 @@
 	<unistd.h>
 	<string.h>
 
-1494298584 source:/home/william/code/wmww_statusline/src/get_cpu.cpp
+1494439656 source:/home/william/code/wmww_statusline/src/get_cpu.cpp
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<fcntl.h>
 	"statusline.h"
 
-1494298986 /home/william/code/wmww_statusline/src/persistent_data.h
+1494439181 /home/william/code/wmww_statusline/src/persistent_data.h
 	<unordered_map>
 
-1494299249 source:/home/william/code/wmww_statusline/src/persistent_data.cpp
+1494439205 source:/home/william/code/wmww_statusline/src/persistent_data.cpp
 	"statusline.h"
 	"file_utils.h"
 	"number_conversion_utils.h"
@@ -64,9 +65,21 @@
 	<string>
 	<vector>
 
-1494437946 source:/home/william/code/wmww_statusline/src/Plugin.cpp
+1494438972 source:/home/william/code/wmww_statusline/src/Plugin.cpp
 	"Plugin.h"
 
-1494437940 /home/william/code/wmww_statusline/src/Plugin.h
+1494439107 /home/william/code/wmww_statusline/src/Plugin.h
 	"statusline.h"
+	<memory>
+
+1494440529 source:/home/william/code/wmww_statusline/src/cpu_plugin.cpp
+	"Plugin.h"
+
+1494439181 /home/william/code/wmww_statusline/src/ConfigData.h
+	<unordered_map>
+
+1494439205 source:/home/william/code/wmww_statusline/src/ConfigData.cpp
+	"statusline.h"
+	"file_utils.h"
+	"number_conversion_utils.h"
 

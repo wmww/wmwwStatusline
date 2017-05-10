@@ -16,7 +16,7 @@ private:
 	string data;
 };
 
-class PersistentData
+class ConfigData
 {
 public:
 	

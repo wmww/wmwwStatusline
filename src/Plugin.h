@@ -29,3 +29,6 @@ public:
 	
 	static const string plaintextSeparator;
 };
+
+
+

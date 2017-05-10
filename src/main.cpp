@@ -3,7 +3,7 @@
 
 #include "graphics.h"
 
-PersistentData data;
+ConfigData data;
 
 const string configPath="config.txt";
 

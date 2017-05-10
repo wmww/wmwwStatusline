@@ -60,7 +60,7 @@ static string getNextToken(const string& data, int& i)
 	}
 }
 
-bool PersistentData::fromFile(string path, string prefix)
+bool ConfigData::fromFile(string path, string prefix)
 {
 	string contents;
 	
@@ -72,7 +72,7 @@ bool PersistentData::fromFile(string path, string prefix)
 	return true;
 }
 
-void PersistentData::fromString(string contents, string prefix)
+void ConfigData::fromString(string contents, string prefix)
 {
 	int i=0;
 	
@@ -118,7 +118,7 @@ void PersistentData::fromString(string contents, string prefix)
 	}
 }
 
-string PersistentData::toString()
+string ConfigData::toString()
 {
 	string out;
 	
@@ -139,12 +139,12 @@ string PersistentData::toString()
 	return out;
 }
 
-bool PersistentData::toFile(string path)
+bool ConfigData::toFile(string path)
 {
 	return writeFile(path, toString());
 }
 
-DataVal PersistentData::get(string key)
+DataVal ConfigData::get(string key)
 {
 	auto result = data.find(key);
 	
@@ -163,22 +163,22 @@ DataVal PersistentData::get(string key)
 	}
 }
 
-void PersistentData::set(string key, string val)
+void ConfigData::set(string key, string val)
 {
 	addKeyVal(key, val);
 }
 
-void PersistentData::set(string key, double val)
+void ConfigData::set(string key, double val)
 {
 	addKeyVal(key, doubleToString(val));
 }
 
-void PersistentData::set(string key, bool val)
+void ConfigData::set(string key, bool val)
 {
 	addKeyVal(key, val ? "true" : "false");
 }
 
-void PersistentData::addKeyVal(string key, string val)
+void ConfigData::addKeyVal(string key, string val)
 {
 	if (data.find(key) == data.end())
 		orderedKeys.push_back(key);

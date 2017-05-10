@@ -10,9 +10,9 @@ using std::endl;
 #include <vector>
 using std::vector;
 
-#include "persistent_data.h"
+#include "ConfigData.h"
 
-extern PersistentData data;
+#include "number_conversion_utils.h"
 
 string getTime(string format="");
 

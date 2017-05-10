@@ -53,5 +53,8 @@ double PluginBase::update(double delta)
 	jsonCache = "";
 	plaintextCache = "";
 	
+	text.clear();
+	color.clear();
+	
 	return refresh(delta);
 }

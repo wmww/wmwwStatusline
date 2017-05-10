@@ -24,8 +24,11 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="../config.txt" />
+		<Unit filename="../src/ConfigData.cpp" />
+		<Unit filename="../src/ConfigData.h" />
 		<Unit filename="../src/Plugin.cpp" />
 		<Unit filename="../src/Plugin.h" />
+		<Unit filename="../src/cpu_plugin.cpp" />
 		<Unit filename="../src/file_utils.cpp" />
 		<Unit filename="../src/file_utils.h" />
 		<Unit filename="../src/get_cpu.cpp" />
@@ -36,8 +39,6 @@
 		<Unit filename="../src/main.cpp" />
 		<Unit filename="../src/number_conversion_utils.cpp" />
 		<Unit filename="../src/number_conversion_utils.h" />
-		<Unit filename="../src/persistent_data.cpp" />
-		<Unit filename="../src/persistent_data.h" />
 		<Unit filename="../src/statusline.h" />
 		<Extensions>
 			<envvars />

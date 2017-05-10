@@ -5,6 +5,9 @@
 #include <fcntl.h>
 #include "statusline.h"
 
+long lastCpuTotal = 0;
+long lastCpuUsed = 0;
+
 double getCpu()
 {
     FILE *fd;
@@ -41,16 +44,16 @@ double getCpu()
 	
 	long cpu_used = 0;
 	
-	long oldtotal = data.get("last.cpu_total").asNum();
-	long oldused = data.get("last.cpu_used").asNum();
+	long oldtotal = lastCpuTotal;
+	long oldused = lastCpuUsed;
 	
     if ((total - oldtotal) != 0)
     {
         cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
     }
     
-    data.set("last.cpu_total", (double)total);
-    data.set("last.cpu_used", (double)used);
+    lastCpuTotal = total;
+   lastCpuUsed = used;
     
     return cpu_used;
 }

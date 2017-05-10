@@ -2,7 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="../src/statusline.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../src/statusline.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="202" topLine="0" />
 		</Cursor>
@@ -12,7 +12,7 @@
 			<Cursor1 position="227" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../src/get_cpu.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../src/get_cpu.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1144" topLine="0" />
 		</Cursor>
@@ -24,25 +24,6 @@
 		<Cursor>
 			<Cursor1 position="200" topLine="0" />
 		</Cursor>
-	</File>
-	<File name="../src/persistent_data.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2392" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-			<Collapse line="12" />
-			<Collapse line="17" />
-			<Collapse line="63" />
-			<Collapse line="75" />
-			<Collapse line="121" />
-			<Collapse line="142" />
-			<Collapse line="147" />
-			<Collapse line="166" />
-			<Collapse line="171" />
-			<Collapse line="176" />
-			<Collapse line="181" />
-		</Folding>
 	</File>
 	<File name="../src/Plugin.cpp" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -75,19 +56,15 @@
 			<Collapse line="59" />
 		</Folding>
 	</File>
+	<File name="../src/cpu_plugin.cpp" open="1" top="1" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="../src/file_utils.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="12" topLine="0" />
 		</Cursor>
-	</File>
-	<File name="../src/persistent_data.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="175" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="3" />
-			<Collapse line="19" />
-		</Folding>
 	</File>
 	<File name="../src/file_utils.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -107,12 +84,12 @@
 			<Cursor1 position="50" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../src/number_conversion_utils.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../src/number_conversion_utils.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../src/Plugin.h" open="1" top="1" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../src/Plugin.h" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>

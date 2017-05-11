@@ -12,9 +12,15 @@ use json
 
 {
 	#active: false
+	type: ram
+	style: h bar
+	bar size: 4
+}
+
+{
+	#active: false
 	type: cpu
-	style: no bar
-	bar size: 3
+	style: v bar
 }
 
 {

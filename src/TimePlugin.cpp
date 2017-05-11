@@ -1,5 +1,7 @@
 #include "Plugin.h"
 
+string getTime(string format="");
+
 class TimePlugin: public PluginBase
 {
 public:

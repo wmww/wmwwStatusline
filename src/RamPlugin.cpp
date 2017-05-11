@@ -1,13 +1,15 @@
+
 #include "Plugin.h"
 
-double getCpu();
+double getRam();
 
-class CpuPlugin: public PluginBase
+class RamPlugin: public PluginBase
 {
 public:
 	double refresh(double delta)
 	{
-		sections.push_back("CPU:" + conversionLambda(getCpu()));
+		sections.push_back(Section("RAM "));
+		sections.push_back(Section(conversionLambda(getRam()), "", "#000000"));
 		//sections.push_back(string() + "CPU");
 		return refreshRate;
 	}
@@ -17,9 +19,9 @@ public:
 	std::function<string(double)> conversionLambda;
 };
 
-Plugin cpuPlugin(ConfigData * config)
+Plugin ramPlugin(ConfigData * config)
 {
-	auto out = shared_ptr<CpuPlugin>(new CpuPlugin);
+	auto out = shared_ptr<RamPlugin>(new RamPlugin);
 	
 	out->refreshRate = config->get("refresh_rate").asNum(0.25);
 	

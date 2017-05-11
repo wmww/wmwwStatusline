@@ -75,6 +75,7 @@ double PluginBase::update(double delta)
 Plugin labelPlugin(PluginBase::Section in);
 Plugin labelPlugin(ConfigData * config);
 Plugin cpuPlugin(ConfigData * config);
+Plugin ramPlugin(ConfigData * config);
 Plugin timePlugin(ConfigData * config);
 
 Plugin PluginBase::make(ConfigData * config)
@@ -92,6 +93,10 @@ Plugin PluginBase::make(ConfigData * config)
 	else if (type == "cpu")
 	{
 		return cpuPlugin(config);
+	}
+	else if (type == "ram")
+	{
+		return ramPlugin(config);
 	}
 	else if (type == "time")
 	{

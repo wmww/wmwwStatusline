@@ -14,9 +14,5 @@ using std::vector;
 
 #include "number_conversion_utils.h"
 
-string getTime(string format="");
 
-double getRam();
-
-double getCpu();
 

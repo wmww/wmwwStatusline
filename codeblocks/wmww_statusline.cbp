@@ -30,6 +30,7 @@
 		<Unit filename="../src/LabelPlugin.cpp" />
 		<Unit filename="../src/Plugin.cpp" />
 		<Unit filename="../src/Plugin.h" />
+		<Unit filename="../src/RamPlugin.cpp" />
 		<Unit filename="../src/TimePlugin.cpp" />
 		<Unit filename="../src/file_utils.cpp" />
 		<Unit filename="../src/file_utils.h" />

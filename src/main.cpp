@@ -5,12 +5,14 @@
 
 #include "Plugin.h"
 
+#include "file_utils.h"
+
 ConfigData globalConfig;
 vector<ConfigData> itemsConfig;
 vector<Plugin> plugins;
-Plugin separator = PluginBase::make(" | ", "#ffffff");
+Plugin separator = PluginBase::make(" │ ", "#ffffff");
 
-const string configPath="/home/william/code/wmww_statusline/config.txt";
+const string configPath=getHomeDir()+"/code/wmww_statusline/config.txt";
 
 const string defaultConfig=
 	"{type: label; text: no_config_file}"

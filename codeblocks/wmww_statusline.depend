@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1494453460 source:/home/william/code/wmww_statusline/src/main.cpp
+1494461147 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 	"graphics.h"
 	"Plugin.h"
+	"file_utils.h"
 
 1494270246 /home/william/code/wmww_statusline/h/statusline.h
 	<string>
@@ -44,29 +45,34 @@
 	"file_utils.h"
 	"number_conversion_utils.h"
 
-1494278714 source:/home/william/code/wmww_statusline/src/file_utils.cpp
+1494455416 source:/home/william/code/wmww_statusline/src/file_utils.cpp
 	"statusline.h"
 	<fstream>
 	<sstream>
+	<unistd.h>
+	<sys/types.h>
+	<pwd.h>
 
-1494278763 /home/william/code/wmww_statusline/src/file_utils.h
+1494455390 /home/william/code/wmww_statusline/src/file_utils.h
 	<string>
 
-1494448729 source:/home/william/code/wmww_statusline/src/number_conversion_utils.cpp
+1494467314 source:/home/william/code/wmww_statusline/src/number_conversion_utils.cpp
 	"number_conversion_utils.h"
+	<math.h>
 
-1494297221 /home/william/code/wmww_statusline/src/number_conversion_utils.h
+1494466721 /home/william/code/wmww_statusline/src/number_conversion_utils.h
 	<string>
+	<vector>
 
 1494302244 source:/home/william/code/wmww_statusline/src/graphics.cpp
 	"graphics.h"
 	<math.h>
 
-1494300750 /home/william/code/wmww_statusline/src/graphics.h
+1494461710 /home/william/code/wmww_statusline/src/graphics.h
 	<string>
 	<vector>
 
-1494450886 source:/home/william/code/wmww_statusline/src/Plugin.cpp
+1494467031 source:/home/william/code/wmww_statusline/src/Plugin.cpp
 	"Plugin.h"
 
 1494450758 /home/william/code/wmww_statusline/src/Plugin.h
@@ -89,7 +95,7 @@
 	<string>
 	<vector>
 
-1494448557 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
+1494467200 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
 	"Plugin.h"
 
 1494450925 source:/home/william/code/wmww_statusline/src/LabelPlugin.cpp

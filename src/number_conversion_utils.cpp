@@ -1,5 +1,11 @@
 #include "number_conversion_utils.h"
 
+#include <math.h>
+using std::min;
+using std::max;
+
+const string fixedWidthSpace = " ";
+
 string intToString(int in)
 {
 	string out;
@@ -86,4 +92,48 @@ double stringToDouble(string in)
 	
 	return out;
 }
+
+const vector<string> verticalBarStrs = {fixedWidthSpace, "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"};
+const vector<string> horizontalBarStrs = {fixedWidthSpace, "▏", "▎", "▍", "▌", "▋", "▊", "▉", "█"};
+
+string verticalBar(double val)
+{
+	int i=min(floor(val * verticalBarStrs.size()), (double)verticalBarStrs.size()-1);
+	return verticalBarStrs[i];
+}
+
+string doubleAsPercent(double val)
+{
+	return
+		(val >= 1 ? intToString(val) : " ") +
+		(val * 10 >= 1 ? intToString((int)(val*10) % 10) : " ") +
+		intToString((int)(val*100) % 10) +
+		"%";
+}
+
+string horizontalBar(double val, int charWidth)
+{
+	string out;
+	
+	int before, after, index;
+	
+	before = (int)floor(charWidth * val);
+	index = min(((charWidth * val) - before) * horizontalBarStrs.size(), (double)verticalBarStrs.size()-1);
+	after = charWidth - before - 1;
+	
+	for (int i = 0; i < before; i++)
+	{
+		out += "█";
+	}
+	
+	out += horizontalBarStrs[index];
+	
+	for (int i = 0; i < after; i++)
+	{
+		out += fixedWidthSpace;
+	}
+	
+	return out;
+}
+
 

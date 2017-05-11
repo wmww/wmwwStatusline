@@ -27,7 +27,7 @@ string PluginBase::getJson()
 			
 			//if (i != (int)sections.size() - 1)
 			{
-				jsonCache += ",\"separator\":false,\"separator_block_width\":0";
+				//jsonCache += ",\"separator\":false,\"separator_block_width\":0";
 			}
 			/*else
 			{

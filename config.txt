@@ -4,21 +4,25 @@ use json
 live reload
 
 {
+	active: false
 	type: label
-	text: hayyyy
+	text: ayyyy
 	color: #00ff80
 }
 
 {
+	active: true
 	type: cpu
 }
 
 {
+	active: false
 	type: time
 	format: "%a, %b %d"
 }
 
 {
+	active: false
 	type: time
 	format: "%I:%M:%S%P"
 }

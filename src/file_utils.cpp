@@ -4,6 +4,10 @@
 #include <fstream>
 #include <sstream>
 
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+
 using std::stringstream;
 
 bool loadFile(string filepath, string& contents)
@@ -44,5 +48,17 @@ bool writeFile(string filepath, const string& contents)
 		
 		return true;
 	}
+}
+
+string getHomeDir()
+{
+	const char *homedir;
+	
+	if ((homedir = getenv("HOME")) == NULL)
+	{
+		homedir = getpwuid(getuid())->pw_dir;
+	}
+	
+	return string(homedir);
 }
 

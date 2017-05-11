@@ -1,28 +1,30 @@
 
 use json
 
-live reload
+#live reload
 
 {
-	active: false
+	#active: false
 	type: label
 	text: ayyyy
 	color: #00ff80
 }
 
 {
-	active: true
+	#active: false
 	type: cpu
+	style: no bar
+	bar size: 3
 }
 
 {
-	active: false
+	#active: false
 	type: time
 	format: "%a, %b %d"
 }
 
 {
-	active: false
+	#active: false
 	type: time
 	format: "%I:%M:%S%P"
 }

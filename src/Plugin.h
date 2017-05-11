@@ -1,5 +1,8 @@
 
 #include "statusline.h"
+
+#include <functional>
+
 #include <memory>
 using std::shared_ptr;
 
@@ -45,4 +48,6 @@ public:
 	
 	static const string plaintextSeparator;
 };
+
+std::function<string(double)> getDoubleToStringFunc(ConfigData * config);
 

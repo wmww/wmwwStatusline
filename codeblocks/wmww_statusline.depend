@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1494461147 source:/home/william/code/wmww_statusline/src/main.cpp
+1494469181 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 	"graphics.h"
@@ -56,7 +56,7 @@
 1494455390 /home/william/code/wmww_statusline/src/file_utils.h
 	<string>
 
-1494467314 source:/home/william/code/wmww_statusline/src/number_conversion_utils.cpp
+1494468467 source:/home/william/code/wmww_statusline/src/number_conversion_utils.cpp
 	"number_conversion_utils.h"
 	<math.h>
 
@@ -72,11 +72,12 @@
 	<string>
 	<vector>
 
-1494467031 source:/home/william/code/wmww_statusline/src/Plugin.cpp
+1494470152 source:/home/william/code/wmww_statusline/src/Plugin.cpp
 	"Plugin.h"
 
-1494450758 /home/william/code/wmww_statusline/src/Plugin.h
+1494470146 /home/william/code/wmww_statusline/src/Plugin.h
 	"statusline.h"
+	<functional>
 	<memory>
 
 1494440529 source:/home/william/code/wmww_statusline/src/cpu_plugin.cpp
@@ -95,7 +96,7 @@
 	<string>
 	<vector>
 
-1494467200 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
+1494470117 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
 	"Plugin.h"
 
 1494450925 source:/home/william/code/wmww_statusline/src/LabelPlugin.cpp

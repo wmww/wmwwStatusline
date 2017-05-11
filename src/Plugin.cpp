@@ -27,7 +27,7 @@ string PluginBase::getJson()
 			
 			//if (i != (int)sections.size() - 1)
 			{
-				//jsonCache += ",\"separator\":false,\"separator_block_width\":0";
+				jsonCache += ",\"separator\":false,\"separator_block_width\":0";
 			}
 			/*else
 			{
@@ -111,5 +111,32 @@ Plugin PluginBase::make(ConfigData * config)
 Plugin PluginBase::make(string text, string color, string bknd)
 {
 	return labelPlugin(PluginBase::Section(text, color, bknd));
+}
+
+std::function<string(double)> getDoubleToStringFunc(ConfigData * config)
+{
+	string style = config->get("style").asString();
+	
+	if (style.empty() || style == "percent")
+	{
+		return doubleAsPercent;
+	}
+	if (style == "v_bar")
+	{
+		return verticalBar;
+	}
+	else if (style == "h_bar")
+	{
+		int w = config->get("bar_size").asNum();
+		
+		if (w == 0)
+			w = 1;
+		
+		return [=](double in) -> string {return horizontalBar(in, w);};
+	}
+	else
+	{
+		return [=](double in) -> string {return "unknown style '" + style + "'";};
+	}
 }
 

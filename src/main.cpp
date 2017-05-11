@@ -61,6 +61,9 @@ void loadConfig()
 		globalConfig.fromString(defaultConfig, itemsConfig);
 	}
 	
+	if (globalConfig.get("live_reload").exists())
+		plugins.push_back(PluginBase::make("live reload active", "#000000", "#ff8000"));
+	
 	for (auto i: itemsConfig)
 	{
 		if (i.get("active").asString() != "false")

@@ -4,7 +4,17 @@ __this is currently a work in progress, and as such documentation is incomplete 
  
 WMWW Statusline is a highly configurable statusline program for Linux. A statusline simply prints out useful information (such as time or resource usage) line-by-line. WMWW Statusline was designed for use with the i3 and sway window managers.
 
-## configuration
+## Building
+
+WMWW Statusline does not currently have any 3rd party dependencies. To build, clone this repo somewhere, cd into it and run `make`. the `wmww_status` executable will then be in that folder. If your using i3 or sway, set the status_command in the bar section to the absolute path. Example (to go in i3 config):
+
+```
+bar {
+	status_command /home/william/code/wmww_statusline/wmww_status
+}
+```
+
+## Configuration
 I will provide additional documentation later, but this should be all you need to use all current features.
 
 ```

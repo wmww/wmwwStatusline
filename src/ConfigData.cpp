@@ -4,8 +4,6 @@
 
 #include "number_conversion_utils.h"
 
-#include "../../string_utils/wmstr.h"
-
 using namespace wmstr;
 
 double DataVal::asNum()
@@ -176,7 +174,8 @@ void ConfigData::fromString(string contents, vector<ConfigData>& children)
 			if (val.empty())
 				val = "null";
 			
-			block->addKeyVal(key, val);
+			if (!startsWith(key, "#"))
+				block->addKeyVal(key, val);
 		}
 	}
 }

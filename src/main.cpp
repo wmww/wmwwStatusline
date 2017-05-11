@@ -12,7 +12,7 @@ vector<ConfigData> itemsConfig;
 vector<Plugin> plugins;
 Plugin separator = PluginBase::make(" │ ", "#ffffff");
 
-const string configPath=getHomeDir()+"/code/wmww_statusline/config.txt";
+const string configPath=getHomeDir()+"/.config/wmww_status.conf";
 
 const string defaultConfig=
 	"{type: label; text: no_config_file}"

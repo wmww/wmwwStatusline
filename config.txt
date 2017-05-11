@@ -1,38 +1,32 @@
+﻿use json
 
-use json
-
-live reload
-
-{
-	#active: false
-	type: label
-	text: ayyyy
-	color: #00ff80
-}
+# live reload
 
 {
-	#active: false
+	# active: false
 	type: ram
-	style: h bar
-	bar size: 2
+	style: v bar
+	bar size: 4
+	warning level: 0.71
 }
 
 {
-	#active: false
+	# active: false
 	type: cpu
 	style: v bar
 	separate cores
 }
 
 {
-	#active: false
+	# active: false
 	type: time
 	format: "%a, %b %d"
 }
 
 {
-	#active: false
+	# active: false
 	type: time
-	format: "%I:%M:%S%P"
+	format: "%I:%M%P"
+	# format: "%I:%M:%S%P"
 }
 

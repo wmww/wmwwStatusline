@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1494469181 source:/home/william/code/wmww_statusline/src/main.cpp
+1494482591 source:/home/william/code/wmww_statusline/src/main.cpp
 	"statusline.h"
 	<unistd.h>
 	"graphics.h"
@@ -15,13 +15,13 @@
 	<ctime>
 	<time.h>
 
-1494476098 /home/william/code/wmww_statusline/src/statusline.h
+1494483070 /home/william/code/wmww_statusline/src/statusline.h
 	<string>
 	<iostream>
 	<vector>
 	"ConfigData.h"
 	"number_conversion_utils.h"
-	"../../string_utils/wmstr.h"
+	"wmstr.h"
 
 1494273671 source:/home/william/code/wmww_statusline/src/get_ram.cpp
 	"statusline.h"
@@ -31,7 +31,7 @@
 	<unistd.h>
 	<string.h>
 
-1494479307 source:/home/william/code/wmww_statusline/src/get_cpu.cpp
+1494479772 source:/home/william/code/wmww_statusline/src/get_cpu.cpp
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -99,7 +99,7 @@
 	<string>
 	<vector>
 
-1494478095 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
+1494479574 source:/home/william/code/wmww_statusline/src/CpuPlugin.cpp
 	"Plugin.h"
 
 1494450925 source:/home/william/code/wmww_statusline/src/LabelPlugin.cpp
@@ -108,6 +108,10 @@
 1494474203 source:/home/william/code/wmww_statusline/src/TimePlugin.cpp
 	"Plugin.h"
 
-1494474533 source:/home/william/code/wmww_statusline/src/RamPlugin.cpp
+1494480354 source:/home/william/code/wmww_statusline/src/RamPlugin.cpp
 	"Plugin.h"
+
+1494476203 /home/william/code/wmww_statusline/src/wmstr.h
+	<string>
+	<vector>
 

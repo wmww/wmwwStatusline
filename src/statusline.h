@@ -14,5 +14,7 @@ using std::vector;
 
 #include "number_conversion_utils.h"
 
+#include "../../string_utils/wmstr.h"
+
 
 

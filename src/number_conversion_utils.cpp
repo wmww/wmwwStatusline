@@ -63,6 +63,23 @@ int stringToInt(string in)
 	return out;
 }
 
+unsigned long long stringToUnsignedLongLong(string in)
+{
+	unsigned long long out = 0;
+	
+	for (int i = 0; i < (int)in.size(); i++)
+	{
+		if (in[i] >= '0' && in[i] <= '9')
+		{
+			out = out * 10 + in[i] - '0';
+		}
+		else if (in[i] == '.')
+			break;
+	}
+	
+	return out;
+}
+
 double stringToDouble(string in)
 {
 	double out = 0;

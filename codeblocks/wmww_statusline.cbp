@@ -19,6 +19,16 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="Debug">
+				<Option output="../wmww_status" prefix_auto="1" extension_auto="1" />
+				<Option working_dir=".." />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />

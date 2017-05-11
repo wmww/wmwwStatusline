@@ -5,10 +5,104 @@
 #include <fcntl.h>
 #include "statusline.h"
 
-long lastCpuTotal = 0;
-long lastCpuUsed = 0;
+#include <fstream>
 
-double getCpu()
+#include "number_conversion_utils.h"
+
+unsigned long long lastCpuTotal = 0;
+unsigned long long lastCpuUsed = 0;
+
+vector<unsigned long long> lastCpusTotal;
+vector<unsigned long long> lastCpusUsed;
+
+void getCpu(vector<double>& cpus)
+{
+	std::ifstream procStat;
+	procStat.open("/proc/stat");
+	
+	if (!procStat.is_open())
+	{
+		return;
+	}
+	
+	while (true)
+	{
+		//cout << "line is " << lineStr << endl << 
+		//endl << endl;
+		
+		string start;
+		
+		procStat >> start;
+		
+		if (!wmstr::startsWith(start, "cpu"))
+		{
+			break;
+		}
+		
+		if (start == "cpu")
+		{
+			string lineStr;
+			
+			if (!getline(procStat, lineStr))
+				return;
+		}
+		else
+		{
+			string lineStr;
+			
+			if (!getline(procStat, lineStr))
+				return;
+			
+			vector<string> line;
+			
+			wmstr::splitBy(line, lineStr, " ");
+			
+			unsigned long long int user = 0, unice = 0, usystem = 0, idle = 0, iowait = 0, irq = 0, softirq = 0, guest = 0;
+			
+			#define TRY_INDEX(array, index, default) ((index >= array.size()) ? default : stringToUnsignedLongLong(array[index]))
+			
+			int index = stringToInt(start);
+			
+			user = TRY_INDEX(line, 0, 0);
+			unice = TRY_INDEX(line, 1, 0);
+			usystem = TRY_INDEX(line, 2, 0);
+			idle = TRY_INDEX(line, 3, 0);
+			iowait = TRY_INDEX(line, 4, 0);
+			irq = TRY_INDEX(line, 5, 0);
+			softirq = TRY_INDEX(line, 6, 0);
+			guest = TRY_INDEX(line, 7, 0);
+			
+			while ((int)lastCpusUsed.size() <= index)
+				lastCpusUsed.push_back(0);
+			
+			while ((int)lastCpusTotal.size() <= index)
+				lastCpusTotal.push_back(0);
+			
+			while ((int)cpus.size() <= index)
+				cpus.push_back(0);
+			
+			unsigned long long used = user + unice + usystem + irq + softirq + guest;
+			unsigned long long total = used + idle + iowait;
+			
+			double ratioUsed = 0;
+			
+			if (total - lastCpusTotal[index] > 0)
+			{
+				ratioUsed = (double)(used - lastCpusUsed[index]) / (double)(total - lastCpusTotal[index]);
+			}
+			
+			cpus[index] = ratioUsed;
+			lastCpusUsed[index] = used;
+			lastCpusTotal[index] = total;
+		}
+	}
+	
+	return;
+}
+
+/*
+
+double getCpu0()
 {
     FILE *fd;
     unsigned long long int user, unice, usystem, idle, iowait, irq, softirq, guest;
@@ -57,3 +151,5 @@ double getCpu()
     
     return cpu_used;
 }
+
+*/

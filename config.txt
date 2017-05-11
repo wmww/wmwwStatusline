@@ -1,7 +1,7 @@
 
 use json
 
-#live reload
+live reload
 
 {
 	#active: false
@@ -14,13 +14,14 @@ use json
 	#active: false
 	type: ram
 	style: h bar
-	bar size: 4
+	bar size: 2
 }
 
 {
 	#active: false
 	type: cpu
 	style: v bar
+	separate cores
 }
 
 {

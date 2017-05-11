@@ -9,6 +9,7 @@ using std::vector;
 string intToString(int in);
 string doubleToString(double in);
 int stringToInt(string in);
+unsigned long long stringToUnsignedLongLong(string in);
 double stringToDouble(string in);
 
 string verticalBar(double val);

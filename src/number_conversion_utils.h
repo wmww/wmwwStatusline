@@ -15,3 +15,4 @@ double stringToDouble(string in);
 string verticalBar(double val);
 string doubleAsPercent(double val);
 string horizontalBar(double val, int charWidth);
+string pieChart(double val);

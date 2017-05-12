@@ -130,6 +130,10 @@ std::function<string(double)> getDoubleToStringFunc(ConfigData * config)
 	{
 		return verticalBar;
 	}
+	if (style == "pie")
+	{
+		return pieChart;
+	}
 	else if (style == "h_bar")
 	{
 		int w = config->get("bar_size").asNum();

@@ -174,8 +174,7 @@ void ConfigData::fromString(string contents, vector<ConfigData>& children)
 			if (val.empty())
 				val = "null";
 			
-			if (!startsWith(key, "#"))
-				block->addKeyVal(key, val);
+			block->addKeyVal(key, val);
 		}
 	}
 }
@@ -186,6 +185,8 @@ string ConfigData::toString()
 	
 	for (string key: orderedKeys)
 	{
+		if (key.empty())
+			key = "[empty key]";
 		out+=key;
 		string val=data[key];
 		
@@ -242,6 +243,9 @@ void ConfigData::set(string key, bool val)
 
 void ConfigData::addKeyVal(string key, string val)
 {
+	if (startsWith(key, "#") || key.empty())
+		return;
+	
 	if (data.find(key) == data.end())
 		orderedKeys.push_back(key);
 	

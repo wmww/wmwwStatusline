@@ -112,6 +112,8 @@ double stringToDouble(string in)
 
 const vector<string> verticalBarStrs = {fixedWidthSpace, "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"};
 const vector<string> horizontalBarStrs = {fixedWidthSpace, "▏", "▎", "▍", "▌", "▋", "▊", "▉", "█"};
+const vector<string> pieChartStrs = {"○", "◔", "◑", "◕", "●"};
+const vector<string> circleSpinnerStrs = {"◜", "◝", "◞", "	◟"};
 
 string verticalBar(double val)
 {
@@ -153,4 +155,9 @@ string horizontalBar(double val, int charWidth)
 	return out;
 }
 
+string pieChart(double val)
+{
+	int i=min(floor(val * pieChartStrs.size()), (double)pieChartStrs.size()-1);
+	return pieChartStrs[i];
+}
 

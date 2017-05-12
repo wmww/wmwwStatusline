@@ -12,11 +12,9 @@ vector<ConfigData> itemsConfig;
 vector<Plugin> plugins;
 Plugin separator = PluginBase::make(" │ ", "#ffffff");
 
-const string configPath=getHomeDir()+"/.config/wmww_status.conf";
+string configPath=getHomeDir()+"/.config/wmww_status.conf";
 
-const string defaultConfig=
-	"{type: label; text: no_config_file}"
-	;
+void loadConfig();
 
 // returns true if program should abort
 bool processArgs(int argc, char ** argv)
@@ -31,10 +29,34 @@ bool processArgs(int argc, char ** argv)
 	
 	for (int i=0; i<(int)args.size(); i++)
 	{
-		if (args[i]=="-h")
+		if (args[i] == "-h")
 		{
 			cout << "WMWW Statusline" << endl;
+			cout << "more info at https://github.com/william01110111/wmwwStatusline" << endl;
 			cout << "usage: wmww_status [OPTIONS]" << endl;
+			cout << "options:" << endl;
+			cout << "    -c, -config [config filepath] - specify a config filepath" << endl;
+			cout << "    -show-parsed - show the pased config gile and quit" << endl;
+			quit = true;
+			break;
+		}
+		else if (args[i] == "-c" || args[i] == "-config")
+		{
+			if (i + 1 < (int)args.size())
+			{
+				configPath = args[i+1];
+				i++;
+			}
+		}
+		else if (args[i] == "-show-parsed")
+		{
+			loadConfig();
+			cout << "parsed config file:" << endl;
+			cout << globalConfig.toString() << endl;
+			for (auto j: itemsConfig)
+			{
+				cout << "{\n" << j.toString() << "}" << endl << endl;
+			}
 			quit = true;
 			break;
 		}
@@ -58,7 +80,7 @@ void loadConfig()
 	
 	if (!globalConfig.fromFile(configPath, itemsConfig))
 	{
-		globalConfig.fromString(defaultConfig, itemsConfig);
+		globalConfig.fromString("{type: label; text: \"no config file at '" + configPath + "'\"}", itemsConfig);
 	}
 	
 	if (globalConfig.get("live_reload").exists())
@@ -69,6 +91,8 @@ void loadConfig()
 		if (i.get("active").asString() != "false")
 			plugins.push_back(PluginBase::make(&i));
 	}
+	
+	//cout << globalConfig.toString() << endl;
 }
 
 int main(int argc, char ** argv)

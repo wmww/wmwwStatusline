@@ -1,4 +1,4 @@
-﻿use json
+use json
 
 # live reload
 

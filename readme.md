@@ -28,7 +28,7 @@ version:1
 
 #	this says to use i3's json protocol (allowing colored output in i3/sway), instead of plaintext.
 #	comment this our for human readability or to use WMWW Status in another context
-use json
+json output
 
 #	when not commented, this constantly reloads the config file for easy configuration.
 #	A warning appears so you don't accidentally leave this on (which would cause constant disk reads)

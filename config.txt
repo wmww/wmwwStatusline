@@ -1,4 +1,6 @@
-use json
+version:1
+
+json output
 
 # live reload
 

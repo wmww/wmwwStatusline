@@ -102,7 +102,7 @@ int main(int argc, char ** argv)
 	
 	loadConfig();
 	
-	bool useJson = globalConfig.get("json_ouput").exists() || globalConfig.get("use_json").exists();
+	bool useJson = globalConfig.get("json_output").exists() || globalConfig.get("use_json").exists();
 	
 	if (useJson)
 	{

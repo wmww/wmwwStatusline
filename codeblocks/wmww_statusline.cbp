@@ -34,6 +34,7 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="../config.txt" />
+		<Unit filename="../src/BatPlugin.cpp" />
 		<Unit filename="../src/ConfigData.cpp" />
 		<Unit filename="../src/ConfigData.h" />
 		<Unit filename="../src/CpuPlugin.cpp" />
@@ -44,6 +45,7 @@
 		<Unit filename="../src/TimePlugin.cpp" />
 		<Unit filename="../src/file_utils.cpp" />
 		<Unit filename="../src/file_utils.h" />
+		<Unit filename="../src/get_bat.cpp" />
 		<Unit filename="../src/get_cpu.cpp" />
 		<Unit filename="../src/get_ram.cpp" />
 		<Unit filename="../src/get_time.cpp" />

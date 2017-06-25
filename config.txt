@@ -2,12 +2,12 @@ version:1
 
 json output
 
-# live reload
+#live reload
 
 {
 	# active: false
 	type: ram
-	style: v bar
+	style: h bar
 	bar size: 4
 	warning level: 0.71
 }

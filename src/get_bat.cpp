@@ -1,14 +1,27 @@
 
 #include "statusline.h"
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
+#include <fstream>
+#include <string>
 
-double getBat()
+double getNumberFromFile(string const& path)
 {
-	cout << "getBat not yet implemented" << endl;
+    std::ifstream ifs(path);
+    std::string content((std::istreambuf_iterator<char>(ifs)), (std::istreambuf_iterator<char>()));
+    return std::stod(content);
+}
+
+unsigned int getEnumFromFile(std::vector<std::pair<unsigned int, string>> const& enums, string const& path)
+{
+    std::ifstream ifs(path);
+    std::string content((std::istreambuf_iterator<char>(ifs)), (std::istreambuf_iterator<char>()));
+    for (auto const& e : enums)
+    {
+        if (content == e.second)
+        {
+            return e.first;
+        }
+    }
+    return 0;
 }
 

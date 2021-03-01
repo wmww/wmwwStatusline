@@ -1,6 +1,6 @@
 #include "Plugin.h"
 
-const string PluginBase::plaintextSeparator = " | ";
+const string PluginBase::plaintextSeparator = ": ";
 
 string PluginBase::getJson()
 {
@@ -77,6 +77,7 @@ Plugin labelPlugin(ConfigData * config);
 Plugin cpuPlugin(ConfigData * config);
 Plugin ramPlugin(ConfigData * config);
 Plugin timePlugin(ConfigData * config);
+Plugin batPlugin(ConfigData * config);
 
 Plugin PluginBase::make(ConfigData * config)
 {
@@ -102,11 +103,10 @@ Plugin PluginBase::make(ConfigData * config)
 	{
 		return timePlugin(config);
 	}
-			
-		//case "ram":
-			
-		//case "time":
-			
+	else if (type == "bat")
+	{
+		return batPlugin(config);
+	}
 	else
 	{
 		return labelPlugin(PluginBase::Section("[section with unknown type '" + type + "']", "#ffffff", "#ff0000"));
@@ -126,13 +126,17 @@ std::function<string(double)> getDoubleToStringFunc(ConfigData * config)
 	{
 		return doubleAsPercent;
 	}
-	if (style == "v_bar")
+	else if (style == "v_bar")
 	{
 		return verticalBar;
 	}
-	if (style == "pie")
+	else if (style == "pie")
 	{
 		return pieChart;
+	}
+	else if (style == "dot")
+	{
+		return dot;
 	}
 	else if (style == "h_bar")
 	{

@@ -5,6 +5,11 @@ json output
 #live reload
 
 {
+    type: bat
+    style: v bar
+}
+
+{
 	# active: false
 	type: ram
 	style: h bar

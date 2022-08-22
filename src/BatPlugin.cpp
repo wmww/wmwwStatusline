@@ -50,16 +50,22 @@ public:
                     labelColor = "#ff0000";
                     bat = warningLevel / bat;
                 }
+                else if (bat <= alertLevel)
+                {
+                    color = "#a0a000";
+                    labelColor = "#a0a000";
+                }
                 else
                 {
-                    color = "";
+                    color = "#00ff00";
+                    labelColor = "#00ff00";
                 }
                 break;
             case BAT_STATE_CHARGING:
-                color = "#00ff00";
+                color = "#ffffff";
                 break;
             case BAT_STATE_FULL:
-                color = "#b0b0b0";
+                color = "";
                 break;
         }
 
@@ -77,6 +83,7 @@ public:
     string prefix = "/sys/class/power_supply/BAT0/";
 	double refreshRate = 1;
 	double warningLevel = 0.1;
+	double alertLevel = 0.5;
     double chargeFull = 0;
 	std::function<string(double)> conversionLambda;
 };

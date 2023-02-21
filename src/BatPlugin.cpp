@@ -80,7 +80,7 @@ public:
         return refreshRate;
     }
 
-    string prefix = "/sys/class/power_supply/BAT0/";
+    string prefix = "/sys/class/power_supply/max170xx_battery/";
 	double refreshRate = 1;
 	double warningLevel = 0.1;
 	double alertLevel = 0.5;

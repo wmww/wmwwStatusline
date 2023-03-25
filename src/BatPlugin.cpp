@@ -1,6 +1,7 @@
 
 #include "Plugin.h"
 
+bool pathExists(string const& path);
 double getNumberFromFile(string const&);
 unsigned int getEnumFromFile(std::vector<std::pair<unsigned int, string>> const&, string const&);
 
@@ -26,6 +27,25 @@ public:
 	double refresh(double delta)
     try
 	{
+        if (prefix.empty())
+        {
+            for (const string& path : std::vector<string>{
+                "/sys/class/power_supply/BAT0/", // default
+                "/sys/class/power_supply/max170xx_battery/", // GPD pocket
+                })
+            {
+                if (pathExists(path))
+                {
+                    prefix = path;
+                    break;
+                }
+            }
+            if (prefix.empty())
+            {
+                sections.push_back(Section("NO BAT", ""));
+                return refreshRate;
+            }
+        }
         if (chargeFull == 0)
         {
             chargeFull = getNumberFromFile(prefix + "charge_full");
@@ -77,10 +97,11 @@ public:
 	catch (const std::exception& e)
     {
         sections.push_back(Section("ERROR: " + string(e.what()), "#FF0000"));
+        prefix = "";
         return refreshRate;
     }
 
-    string prefix = "/sys/class/power_supply/BAT0/";
+    string prefix = "";
 	double refreshRate = 1;
 	double warningLevel = 0.1;
 	double alertLevel = 0.5;

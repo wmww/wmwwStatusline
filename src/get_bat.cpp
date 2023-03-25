@@ -3,6 +3,13 @@
 
 #include <fstream>
 #include <string>
+#include <sys/stat.h>
+
+bool pathExists(string const& path)
+{
+    struct stat info;
+    return stat(path.c_str(), &info) == 0;
+}
 
 double getNumberFromFile(string const& path)
 {
